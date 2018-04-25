@@ -1,12 +1,11 @@
 class actor {
-  constructor(aspettoTmp, controllerId) {
+  constructor(aspettoTmp) {
     this.position = new createVector(random(-250, 250), 0);
     this.velocity = new createVector(0, 0);
     this.acceleration = new createVector(0, 0);
     this.aspetto = aspettoTmp;
-    this.controllerId=controllerId;
     this.controller = new p5.Vector(0,0);
-    this.mass = 6;
+    this.mass = 1;
   }
 
   applyForce(force) {
@@ -21,7 +20,6 @@ class actor {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
     this.acceleration.mult(0);
-    this.velocity.limit(5);
   }
 
 
@@ -47,26 +45,16 @@ class actor {
 
   checkEdges() {
     if (this.position.x > width/2) {
-      this.position.x = -width/2;
-      //this.velocity.x *= -1;
-    } else if (this.position.x < -width/2) {
-      //this.velocity.x *= -1;
       this.position.x = width/2;
+      this.velocity.x *= -1;
+    } else if (this.position.x < -width/2) {
+      this.velocity.x *= -1;
+      this.position.x = -width/2;
     }
     if (this.position.y > height/2) {
-      //this.velocity.y *= -1;
-      this.position.y = height/2;
-    }
-    if (this.position.y < -height/2) {
-      //this.velocity.y *= -1;
+      this.velocity.y *= -1;
       this.position.y = height/2;
     }
   }
 
-  intersects(other) {
-    let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
-    return (d < 100);
-    console.log(d);
-  }
-
-  }
+}
