@@ -28,14 +28,14 @@ function draw() {
   background(imgBkg);
   let gravity = createVector(0, 0.1);
 
-  readGamePad(0);
-  ghost.applyForce(controller);
+  //readGamePad(0);
+  //ghost.applyForce(controller);
   ghost.applyForce(gravity);
   ghost.update();
   ghost.display();
   ghost.checkEdges();
 
-  elena.applyForce(controller);
+  //elena.applyForce(controller);
   elena.applyForce(gravity);
   elena.update();
   elena.display();
