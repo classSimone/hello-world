@@ -3,8 +3,8 @@ let centro;
 let img, imgElena, imgBkg;
 
 let controllers = {};
-window.addEventListener("gamepadconnected", (e) => controllers[e.gamepad.index] = e.gamepad);
-window.addEventListener("gamepaddisconnected", (e) => delete controllers[e.gamepad.index]);
+//window.addEventListener("gamepadconnected", (e) => controllers[e.gamepad.index] = e.gamepad);
+//window.addEventListener("gamepaddisconnected", (e) => delete controllers[e.gamepad.index]);
 let controller = new p5.Vector(0,0);
 
 function preload() {
